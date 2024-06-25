@@ -8,7 +8,7 @@ OBJ = $(SRC:.c=.o)
 LIB_DIR = lib/lib42.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 # RULES
 
@@ -21,12 +21,12 @@ $(NAME): $(OBJ) library
 	$(CC) $(OBJ) $(LIB_DIR) -o $@
 
 clean:
-	\@rm -f $(OBJ) $(NAME)
-	\@make clean -s -C lib
+	@rm -f $(OBJ) $(NAME)
+	@make clean -s -C lib
 
 fclean: clean
 	@rm -f $(NAME)
-	\@make fclean -s -C lib
+	@make fclean -s -C lib
 
 re: fclean all
 
