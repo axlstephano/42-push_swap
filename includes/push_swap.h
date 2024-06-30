@@ -16,7 +16,4 @@ typedef struct s_node
     struct s_node *next;
 }   t_node;
 
-int	check_numbers(int argc, char **argv);
-size_t	count_numbers(char const *s, char c);
-
 #endif
