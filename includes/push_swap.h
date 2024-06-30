@@ -5,10 +5,18 @@
 
 typedef struct s_stack
 {
-    int index;
-    int	size;
-    struct s_stack *next;
-    struct s_stack *prev;
+    int size;
+    struct s_stack *head;
 }	t_stack;
+
+typedef struct s_node
+{
+    int     value;
+    int     index;
+    struct s_node *next;
+}   t_node;
+
+int	check_numbers(int argc, char **argv);
+size_t	count_numbers(char const *s, char c);
 
 #endif
