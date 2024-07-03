@@ -1,0 +1,3 @@
+[submodule "libft"]
+	path = lib
+	url = https://github.com/axlstephano/lib42.git
