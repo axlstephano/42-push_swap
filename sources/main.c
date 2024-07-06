@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/06/30 19:34:25 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:17:15 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,34 +52,38 @@ int	*check_numbers(int argc, char **argv, int count)
 	int		k;
 
 	i = 1;
-	k = 0;
+	j = 0;
 	numbers = (int *)ft_calloc(count, sizeof(int));
 	if (!numbers)
 		return (NULL);
+
 	while (i < argc)
 	{
-		matrix = ft_split(argv[i], ' ');
+		matrix = ft_split(argv[i], ' '); //split a argumento
 		if (!matrix)
 			return (NULL);
-		j = 0;
+		k = 0;
 		while (matrix[k])
-			numbers[k++] = ft_atoi(matrix[j++]);
-		free(matrix);
+			numbers[j++] = ft_atoi(matrix[k++]);
+		free(matrix); // cambiar
 		i++;
 	}
 	return (numbers);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char **argv) 
 {
 	t_stack *stack_a;
 	t_stack *stack_b;
 	int *numbers;
 	int count;
+	int i = 0;
 
 	count = args_len(argc, argv);
 	numbers = check_numbers(argc, argv, count);
-	// printf("%d\n", count);
-
+/* 	ft_printf("count:%d\n", count); //PRINT "COUNT"
+ *//* 	while (i < count) //PRINT "NUMBER" ELEMENTS
+		ft_printf("%d\n", numbers[i++]);
+ */	free(numbers);
 	return (0);
 }
