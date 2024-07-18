@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/07/18 19:14:08 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/07/18 19:22:21 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,17 @@ int	main(int argc, char **argv)
 	count = args_len(argc, argv);
 	numbers = check_numbers(argc, argv, count);
 	init_stack(&stack_a, &stack_b, count, numbers);
-	ft_printf("count:%d\n", count); // PRINT "COUNT"
+
+	// *****************PRINT "COUNT"********************
+	
+	//ft_printf("count:%d\n", count);
 
 	// ************PRINT "NUMBER" ELEMENTS************************
 
-	
-	//while (i < count)
-	//	ft_printf("%d\n", numbers[i++]);
-	
+	/* while (i < count)
+		ft_printf("%d\n", numbers[i++]); */
 
-	// ******IMPRIMIR LOS VALORES DE TODOS LOS NODOS EN STACK_ A*********
+	// *************IMPRIMIR LOS VALORES DE TODOS LOS NODOS EN STACK_ A*********
 	
 	/* while(stack_a.head)
 	{
