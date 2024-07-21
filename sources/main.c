@@ -107,11 +107,11 @@ int	main(int argc, char **argv)
 	i = 0;
 	count = args_len(argc, argv);
 	numbers = check_numbers(argc, argv, count);
-	init_stack(&stack_a, &stack_b, count, numbers);
+	// init_stack(&stack_a, &stack_b, count, numbers);
 
 	// *****************PRINT "COUNT"********************
 	
-	//ft_printf("count:%d\n", count);
+	ft_printf("count:%d\n", count);
 
 	// ************PRINT "NUMBER" ELEMENTS************************
 
