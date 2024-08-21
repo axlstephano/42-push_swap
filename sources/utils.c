@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/20 23:30:52 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/21 03:03:03 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void swap(t_stack *stack, char c)
 {
 	t_node	*temp;
 
+	if (!stack->head || !stack->head->next)
+		return ;
 	temp = stack->head;
 	stack->head = temp->next;
-	
 	temp->next = stack->head->next;
 	stack->head->next = temp;
 	
