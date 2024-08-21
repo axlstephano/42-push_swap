@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/07/18 19:22:21 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:54:49 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ int	*check_numbers(int argc, char **argv, int count)
 
 void	fill_stack(t_stack *stack, int value)
 {
-	t_node	*node;
+	t_node	*temp;
 
-	if (!(node = (t_node *)malloc(sizeof(t_node))))
+	if (!(temp = (t_node *)malloc(sizeof(t_node))))
 		return ;
-	node->value = value;
-	node->next = stack->head;
-	stack->head = node;
+	temp->value = value;
+	temp->next = stack->head;
+	stack->head = temp;
 }
 
 void	init_stack(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
@@ -93,6 +93,7 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 	i = count - 1; // número de posiciones, desde el último al final
 	while (i >= 0)
 		fill_stack(stack_a, numbers[i--]); // rellenar stack
+	get_tail(stack_a); // obtenemos la COLA del stack, para rotate y reverse rotate
 	
 }
 
@@ -107,11 +108,11 @@ int	main(int argc, char **argv)
 	i = 0;
 	count = args_len(argc, argv);
 	numbers = check_numbers(argc, argv, count);
-	// init_stack(&stack_a, &stack_b, count, numbers);
+	init_stack(&stack_a, &stack_b, count, numbers);
 
 	// *****************PRINT "COUNT"********************
 	
-	ft_printf("count:%d\n", count);
+	//ft_printf("count:%d\n", count);
 
 	// ************PRINT "NUMBER" ELEMENTS************************
 

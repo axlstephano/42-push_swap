@@ -14,6 +14,9 @@ typedef struct s_stack
 {
     int size;
     t_node *head;
+	t_node *tail;
 }	t_stack;
+
+void	get_tail(t_stack *stack);
 
 #endif
