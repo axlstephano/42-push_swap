@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/20 22:54:49 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:31:14 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // COUNT HOW MANY ARGUMENTS THERE ARE
 
-int	args_len(int argc, char **argv)
+static int	args_len(int argc, char **argv)
 {
 	int	count;
 	int	i;
@@ -33,7 +33,7 @@ int	args_len(int argc, char **argv)
 			else if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-'
 				&& argv[i][j] != ' ')
 			{
-				ft_printf("error!!");
+				ft_printf("Error - args len\n");
 				exit(1);
 			}
 			j++;
@@ -43,7 +43,30 @@ int	args_len(int argc, char **argv)
 	return (count);
 }
 
-int	*check_numbers(int argc, char **argv, int count)
+static int	check_duplicates(int *numbers, int size)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i  + 1;
+		while (j < size)
+		{
+			if (numbers[i] == numbers[j])
+			{
+				ft_printf("Error  check duplicates\n");
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	*check_numbers(int argc, char **argv, int count)
 {
 	int		*numbers;
 	char	**matrix;
@@ -58,19 +81,21 @@ int	*check_numbers(int argc, char **argv, int count)
 		return (NULL);
 	while (i < argc)
 	{
-		matrix = ft_split(argv[i], ' '); // split a argumento
+		matrix = ft_split(argv[i], ' ');
 		if (!matrix)
 			return (NULL);
 		k = 0;
 		while (matrix[k])
 			numbers[j++] = ft_atoi(matrix[k++]);
-		free(matrix); // cambiar
+		free(matrix);
 		i++;
 	}
+	if (check_duplicates(numbers, count))
+		exit (1);
 	return (numbers);
 }
 
-void	fill_stack(t_stack *stack, int value)
+static void	fill_stack(t_stack *stack, int value)
 {
 	t_node	*temp;
 
@@ -81,7 +106,7 @@ void	fill_stack(t_stack *stack, int value)
 	stack->head = temp;
 }
 
-void	init_stack(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
+static void	init_stack(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 {
 	t_node	*node;
 	int		i;
@@ -97,6 +122,7 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int count, int *numbers)
 	
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -109,24 +135,33 @@ int	main(int argc, char **argv)
 	count = args_len(argc, argv);
 	numbers = check_numbers(argc, argv, count);
 	init_stack(&stack_a, &stack_b, count, numbers);
-
+	push(&stack_a, &stack_b, 'a');
+	push(&stack_a, &stack_b, 'a');
+	push(&stack_a, &stack_b, 'a');
+	push(&stack_a, &stack_b, 'a'); 
 	// *****************PRINT "COUNT"********************
 	
 	//ft_printf("count:%d\n", count);
 
 	// ************PRINT "NUMBER" ELEMENTS************************
 
-	/* while (i < count)
-		ft_printf("%d\n", numbers[i++]); */
-
+/* 	while (i < count)
+		ft_printf("%d\n", numbers[i++]);
+ */
 	// *************IMPRIMIR LOS VALORES DE TODOS LOS NODOS EN STACK_ A*********
 	
-	/* while(stack_a.head)
+	printf("STACK A: \n");
+	while(stack_a.head)
 	{
 		printf("%d\n", stack_a.head->value);
 		stack_a.head = stack_a.head->next;
-	} */
-
+	}
+	printf("STACK B: \n");
+	while(stack_b.head)
+	{
+		printf("%d\n", stack_b.head->value);
+		stack_b.head = stack_b.head->next;
+	}	
 	free(numbers);
 	return (0);
 }

@@ -6,11 +6,13 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/21 03:03:03 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:30:56 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/////////// INSTRUCTIONS //////////
 
 void swap(t_stack *stack, char c)
 {
@@ -31,14 +33,22 @@ void swap(t_stack *stack, char c)
 
 void	push(t_stack *stack_a, t_stack *stack_b, char c)
 {
+	t_node	*temp;
 	
+	if ((stack_b->head == NULL))
+	{
+		stack_b->head = stack_a->head;
+		stack_a->head = stack_a->head->next;
+		stack_b->head->next = NULL;
+		return ;
+	}
+	temp = stack_b->head;
+	stack_b->head = stack_a->head;
+	stack_a->head = stack_a->head->next;
+	stack_b->head->next = temp;
 }
 
-
-
-
-
-
+////////////////////////////////
 
 void	get_tail(t_stack *stack)
 {
