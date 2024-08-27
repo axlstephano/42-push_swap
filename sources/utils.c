@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/22 16:30:56 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/28 01:13:45 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,25 @@ void	push(t_stack *stack_a, t_stack *stack_b, char c)
 	stack_b->head = stack_a->head;
 	stack_a->head = stack_a->head->next;
 	stack_b->head->next = temp;
+	write(1, "p", 1);
+	write(1, &c, 1);
+	write(1, "\n", 1);
+	
 }
 
-////////////////////////////////
+
+void	rotate(t_stack *stack_a, t_stack *stack_b, char c)
+{
+	t_node *temp;
+
+	temp = stack_a->head;
+	stack_a->head = temp->next;
+	stack_a->tail->next = temp;
+	temp->next = NULL;
+}
+
+//////////////////////////////////////////////////////////
+
 
 void	get_tail(t_stack *stack)
 {
