@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/28 01:23:30 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/28 11:14:49 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int	main(int argc, char **argv)
 	push(&stack_a, &stack_b, 'b');
 	push(&stack_b, &stack_a, 'b');
 	swap(&stack_a, 'a');*/
-	rotate(&stack_a, &stack_b, 'c');
+	reverse_rotate(&stack_a, 'c');
 	// *****************PRINT "COUNT"********************
 	
 	//ft_printf("count:%d\n", count);

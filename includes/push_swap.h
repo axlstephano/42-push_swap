@@ -21,6 +21,7 @@ typedef struct s_stack
 void	get_tail(t_stack *stack);
 void	swap(t_stack *stack, char c);
 void	push(t_stack *stack_a, t_stack *stack_b, char c);
-void    rotate(t_stack *stack_a, t_stack *stack_b, char c);
+void    rotate(t_stack *stack_a, char c);
+void	reverse_rotate(t_stack *stack_a, char c);
 
 #endif
