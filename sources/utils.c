@@ -6,7 +6,7 @@
 /*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 18:48:16 by axcastil          #+#    #+#             */
-/*   Updated: 2024/08/28 11:53:58 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:39:36 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	reverse_rotate(t_stack *stack_a, char c)
 	t_node	*temp;
 	t_node	*temp2;
 
-	temp2 = stack_a->head;
-	while (temp2->next->next)
-		temp2 = temp2->next;
-	temp2->next = NULL;
 	temp = stack_a->head;
-	stack_a->head =stack_a->tail;
+	temp2 = stack_a->head;
+	while (temp2->next->next != NULL)
+		temp2 = temp2->next;
+	stack_a->head = stack_a->tail;
 	stack_a->head->next = temp;
+	temp2->next = NULL;
 }
 
 //////////////////////////////////////////////////////////
