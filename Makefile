@@ -2,8 +2,10 @@
 # VARIABLES
 
 NAME = push_swap
-SRC = $(wildcard sources/*.c)
+SRC = $(wildcard src/*.c)
 OBJ = $(SRC:.c=.o)
+
+TESTS = $(wildcard tests/*.c) 
 
 LIB_DIR = lib/lib42.a
 
@@ -18,7 +20,7 @@ library:
 	@make -s -C lib
 
 $(NAME): $(OBJ) library
-	$(CC) $(OBJ) $(LIB_DIR) -o $@
+	$(CC) $(OBJ) $(TESTS) $(LIB_DIR) -o $@
 
 clean:
 	@rm -f $(OBJ) $(NAME)

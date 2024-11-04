@@ -24,4 +24,13 @@ void	push(t_stack *stack_a, t_stack *stack_b, char c);
 void    rotate(t_stack *stack_a, char c);
 void	reverse_rotate(t_stack *stack_a, char c);
 
+// TEMPORAL LINES!!!!!
+
+int		arg_len(int ac, char **av);
+
+// TESTS!!!!!
+
+void testarglen(int ac, char **av);
+
+
 #endif
