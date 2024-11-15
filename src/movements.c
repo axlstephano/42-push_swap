@@ -1,6 +1,8 @@
 #include "../inc/push_swap.h"
 
-void	swap(t_stack *stack_a, char c)
+//////// movements def //////////////////////
+
+void	swap(t_stack *stack_a)
 {
 	t_node *temp;
 	
@@ -10,7 +12,7 @@ void	swap(t_stack *stack_a, char c)
 	stack_a->head->next = temp;
 }
 
-void	push (t_stack *stack_src, t_stack *stack_dst, char c)
+void	push (t_stack *stack_src, t_stack *stack_dst)
 {
 	t_node *temp;
 
@@ -24,4 +26,27 @@ void	push (t_stack *stack_src, t_stack *stack_dst, char c)
 	stack_dst->head = temp;
 }
 
+////// calling movements /////////////////////
 
+	/////// swap /////////////////////
+
+void	sa(t_stack *stack)
+{
+	swap(stack);
+	ft_printf("sa\n");
+}
+
+void	sb(t_stack *stack)
+{
+	swap(stack);
+	ft_printf("sb\n");
+}
+
+void	ss(t_stack *stack_1, t_stack *stack_2)
+{
+	swap(stack_1);
+	swap(stack_2);
+	ft_printf("ss\n");
+}
+
+	///////// push ///////////////////

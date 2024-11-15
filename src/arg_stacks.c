@@ -1,6 +1,5 @@
 #include "../inc/push_swap.h"
 
-
 ////////////ARGS FUNTIONS//////////////////////////////////
 
 // contar la cantidad de argumentos insertados y devolver un **int** 
@@ -14,6 +13,11 @@ int	arg_len(int ac, char **av)
 
 	i = 1;
 	len = 0;
+	if(ac <= 2) // error_handler si solo hay un argumento
+	{
+		ft_printf("arguments are missing :c!!!\n");
+		exit (1);
+	}
 	while (i < ac) // iteración de n veces hasta llegar a ac
 	{
 		j = 0; //inicia en 0 para iterar en cada argumento
@@ -72,7 +76,7 @@ int	*arg_to_array(int ac, char **av, int len)
 	while(i < ac) // se itera con 'i' todos los argumentos de av
 	{
 		matrix = ft_split(av[i], ' '); // con split sacamos todos los números de el actual argumento y se lo pasamos a "Matrix"
-		if(!matrix) // error_handler
+		if(!matrix)
 			return(NULL);
 		k = 0; // debemos iterar cada elemento de "Matrix", entonces comenzamos reiniciando el valor a 0 para recorrer desde el inicio
 		while(matrix[k]) // iteramos la matriz de números para convertir todos a tipo int, con ayuda de ATOI

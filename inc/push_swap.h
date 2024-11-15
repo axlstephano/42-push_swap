@@ -33,11 +33,16 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers);
 
 /////////MOVEMENTS////////////////
 
-void	swap(t_stack *stack_a, char c);
-void	push (t_stack *stack_src, t_stack *stack_dst, char c);
+void	swap(t_stack *stack_a);
+void	push (t_stack *stack_src, t_stack *stack_dst);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 
+///////MOVEMENTS CALL////////////
+
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack_1, t_stack *stack_2);
 
 /////////ALGORITHMS////////////////
 
