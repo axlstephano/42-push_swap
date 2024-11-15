@@ -3,6 +3,9 @@
 
 # include "../lib/lib42.h"
 
+
+/////////////STRUCTS/////////////////////
+
 typedef struct s_node
 {
     int     value;
@@ -17,20 +20,28 @@ typedef struct s_stack
 	t_node *tail;
 }	t_stack;
 
+///////////ARGS/////////////////////////
 
-void	get_tail(t_stack *stack);
-void	swap(t_stack *stack, char c);
-void	push(t_stack *stack_a, t_stack *stack_b, char c);
-void    rotate(t_stack *stack_a, char c);
-void	reverse_rotate(t_stack *stack_a, char c);
+int	arg_len(int ac, char **av);
+int	check_duplicates(int *numbers, int len);
+int	*arg_to_array(int ac, char **av, int len);
 
-// TEMPORAL LINES!!!!!
+////////STACKS/////////////////////
 
-int		arg_len(int ac, char **av);
+void	fill_stack(t_stack *stack, int number);
+void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers);
 
-// TESTS!!!!!
+/////////MOVEMENTS////////////////
 
-void testarglen(int ac, char **av);
+void	swap(t_stack *stack_a, char c);
+void	push (t_stack *stack_src, t_stack *stack_dst, char c);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
 
 
+/////////ALGORITHMS////////////////
+
+
+
+/////////////////////////////////////
 #endif
