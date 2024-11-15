@@ -25,6 +25,7 @@ typedef struct s_stack
 int	arg_len(int ac, char **av);
 int	check_duplicates(int *numbers, int len);
 int	*arg_to_array(int ac, char **av, int len);
+void	get_tail(t_stack *stack);
 
 ////////STACKS/////////////////////
 
@@ -34,7 +35,7 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers);
 /////////MOVEMENTS////////////////
 
 void	swap(t_stack *stack_a);
-void	push (t_stack *stack_src, t_stack *stack_dst);
+void	push (t_stack *stack_src, t_stack *stack_dst, char c);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 

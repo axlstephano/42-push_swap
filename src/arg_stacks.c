@@ -13,7 +13,7 @@ int	arg_len(int ac, char **av)
 
 	i = 1;
 	len = 0;
-	if(ac <= 2) // error_handler si solo hay un argumento
+	if(ac < 2) // error_handler si solo hay un argumento
 	{
 		ft_printf("arguments are missing :c!!!\n");
 		exit (1);
