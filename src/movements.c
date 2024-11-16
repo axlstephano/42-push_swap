@@ -46,6 +46,22 @@ void	rotate(t_stack *stack)
 	temp2->next->next = NULL;
 }
 
+void	reverse_rotate(t_stack *stack)
+{
+	t_node	*temp;
+	t_node	*temp2;
+	temp = stack->head;
+	while(temp && temp->next)
+	{
+		if(!temp->next->next)
+			temp2 = temp;
+		temp = temp->next;
+	}
+	temp->next = stack->head;
+	stack->head = temp;
+	temp2->next = NULL;
+}
+
 ////// calling movements /////////////////////
 
 	/////// swap /////////////////////
@@ -89,3 +105,25 @@ void	rr(t_stack *stack_1, t_stack *stack_2)
 	rotate(stack_2);
 	ft_printf("rr\n");
 }
+
+	////// reverse rotate ///////////////
+
+void	rra(t_stack *stack)
+{
+	reverse_rotate(stack);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack *stack)
+{
+	reverse_rotate(stack);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack *stack_1, t_stack *stack_2)
+{
+	reverse_rotate(stack_1);
+	reverse_rotate(stack_2);
+	ft_printf("rrr\n");
+}
+

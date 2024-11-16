@@ -45,6 +45,14 @@ void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack_1, t_stack *stack_2);
 
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack_1, t_stack *stack_2);
+
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack_1, t_stack *stack_2);
+
 /////////ALGORITHMS////////////////
 
 
