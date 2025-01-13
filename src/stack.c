@@ -97,13 +97,26 @@ int	*arg_to_array(int ac, char **av, int len)
 // inserta los números al STACK_A para luego ser ordenados
 void	fill_stack(t_stack *stack, int number)
 {
-	t_node *temp; // nodo temporal para guardar el valor de number
+	t_node *node;
 
-	if(!(temp = (t_node *)malloc(sizeof(t_node)))) // asignación de memoria para temp
+	if(!(node = (t_node *)malloc(sizeof(t_node))))
 		return ;
-	temp->value = number; // guarda el valor de number
-	temp->next = stack->head; // la cabeza del stack, ahora es el que le sigue al nuevo valor
-	stack->head = temp; // se asigna como cabeza del STACK a temp
+	node->value = number;
+	if(stack->head == NULL)
+	{
+		stack->head = node;
+		node->prev = NULL;
+		node->next = NULL;
+		stack->tail = node;
+	}
+	else
+	{
+		node->prev = NULL;
+		stack->head->prev = node;
+		node->next = stack->head;
+		stack->head = node;
+	}
+	//stack->size += 1;
 }
 
 // creación de stacks (pilas) e inserción de los números que usaremos para ordenar.
@@ -119,6 +132,17 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers)
 	stack_b->size = 0;
 
 	i = len - 1;
-	while(i >= 0) 
+	while(i >= 0)
 		fill_stack(stack_a, numbers[i--]); // rellenamos el stack con los números de "Numbers"
+	//arg_index(stack_a, len);
 }
+
+// obtiene la cola de la pila (stack)
+/* void	get_tail(t_stack *stack)
+{
+	t_node *temp;
+
+	while(temp && temp->next)
+		temp = temp->next;
+	stack->tail = temp;
+} */

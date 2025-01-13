@@ -11,6 +11,7 @@ typedef struct s_node
     int     value;
     int     index;
     struct s_node *next;
+	struct s_node *prev;
 }   t_node;
 
 typedef struct s_stack
@@ -25,12 +26,13 @@ typedef struct s_stack
 int	arg_len(int ac, char **av);
 int	check_duplicates(int *numbers, int len);
 int	*arg_to_array(int ac, char **av, int len);
-void	get_tail(t_stack *stack);
 
 ////////STACKS/////////////////////
 
 void	fill_stack(t_stack *stack, int number);
 void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers);
+//void	get_tail(t_stack *stack);
+
 
 /////////MOVEMENTS////////////////
 
@@ -52,6 +54,12 @@ void	rr(t_stack *stack_1, t_stack *stack_2);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack_1, t_stack *stack_2);
+
+/////////UTILS//////////////////////
+
+int		is_sorted(t_stack *stack);
+void	sort_stacks(t_stack *a, t_stack *b, int len);
+void	tiny_sort(t_stack *a);
 
 /////////ALGORITHMS////////////////
 

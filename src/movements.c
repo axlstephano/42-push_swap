@@ -126,4 +126,3 @@ void	rrr(t_stack *stack_1, t_stack *stack_2)
 	reverse_rotate(stack_2);
 	ft_printf("rrr\n");
 }
-

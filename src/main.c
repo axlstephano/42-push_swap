@@ -2,19 +2,22 @@
 
 int main (int ac, char **av)
 {
-	t_stack stack_a;
-	t_stack stack_b;
+	t_node *a;
+	t_node *b;
 	int len_args;
+	int *matrix;
 
-	int i = 0;
+	////////ERROR HANDLER////////
+	if(ac == 1 || (ac == 2 && !av[1][0]))
+		return (1);
 
 	len_args = arg_len(ac, av);
-	int *matriz = arg_to_array(ac, av, len_args);
-	init_stack(&stack_a, &stack_b, len_args, matriz);
+	matrix = arg_to_array(ac, av, len_args);
 
-	///////// TEST FUNTIONS /////////////////////
+	init_stack(&a, &b, len_args, matrix);
 
-
+	if (!is_sorted(&a))
+		sort_stacks(&a, &b, len_args);
 
 	///////// TEST SHOW STACKS /////////////
 
@@ -22,22 +25,24 @@ int main (int ac, char **av)
 
 
 	ft_printf("STACK A:\n");
-	while (stack_a.head)
+	while (a.head)
 	{
-		ft_printf("%d\n", stack_a.head->value);
-		stack_a.head = stack_a.head->next;
+		ft_printf("%d\n", a.head->value);
+		a.head = a.head->next;
 	}
-
+	//ft_printf("nodo prev del último: %d\n", a.head->prev);
 		/////////// stack b /////////////////
 
 	ft_printf("STACK B:\n");
-	while (stack_b.head)
+	while (b.head)
 	{
-		ft_printf("%d\n", stack_b.head->value);
-		stack_b.head = stack_b.head->next;
+		ft_printf("%d\n", b.head->value);
+		b.head = b.head->next;
 	}
 
 	/////////////////////////////////
-
+	
+	
+	//free_stacks(*a);
 	return 0;
 }
