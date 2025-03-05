@@ -14,12 +14,13 @@ typedef struct s_node
 	struct s_node *prev;
 }   t_node;
 
-typedef struct s_stack
+/* typedef struct s_stack
 {
     int size;
     t_node *head;
 	t_node *tail;
-}	t_stack;
+}	t_node;
+ */
 
 ///////////ARGS/////////////////////////
 
@@ -29,37 +30,37 @@ int	*arg_to_array(int ac, char **av, int len); */
 
 ////////STACKS/////////////////////
 
-/* void	fill_stack(t_stack *stack, int number);
-void	init_stack(t_stack *stack_a, t_stack *stack_b, int len, int *numbers); */
-//void	get_tail(t_stack *stack);
+/* void	fill_stack(t_node *stack, int number);
+void	init_node(t_node *stack_a, t_node *stack_b, int len, int *numbers); */
+//void	get_tail(t_node *stack);
 
 
 /////////MOVEMENTS////////////////
 
-void	swap(t_stack *stack_a);
-void	push (t_stack *stack_src, t_stack *stack_dst, char c);
-void	rotate(t_stack *stack);
-void	reverse_rotate(t_stack *stack);
+void	swap(t_node *stack_a);
+void	push (t_node *stack_src, t_node *stack_dst, char c);
+void	rotate(t_node *stack);
+void	reverse_rotate(t_node *stack);
 
 ///////MOVEMENTS CALL////////////
 
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack_1, t_stack *stack_2);
+void	sa(t_node *stack);
+void	sb(t_node *stack);
+void	ss(t_node *stack_1, t_node *stack_2);
 
-void	ra(t_stack *stack);
-void	rb(t_stack *stack);
-void	rr(t_stack *stack_1, t_stack *stack_2);
+void	ra(t_node *stack);
+void	rb(t_node *stack);
+void	rr(t_node *stack_1, t_node *stack_2);
 
-void	rra(t_stack *stack);
-void	rrb(t_stack *stack);
-void	rrr(t_stack *stack_1, t_stack *stack_2);
+void	rra(t_node *stack);
+void	rrb(t_node *stack);
+void	rrr(t_node *stack_1, t_node *stack_2);
 
 /////////UTILS//////////////////////
 
-/* int		is_sorted(t_stack *stack);
-void	sort_stacks(t_stack *a, t_stack *b, int len);
-void	tiny_sort(t_stack *a); */
+/* int		is_sorted(t_node *stack);
+void	sort_nodes(t_node *a, t_node *b, int len);
+void	tiny_sort(t_node *a); */
 
 /////////ALGORITHMS////////////////
 
